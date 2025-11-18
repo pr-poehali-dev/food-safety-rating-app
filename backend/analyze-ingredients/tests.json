@@ -1,0 +1,27 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS request for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedHeaders": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "name": "POST with ingredients returns analysis",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "ingredients": ["Сахар", "Мука"]
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "ingredients": "array",
+        "total_score": "number"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
